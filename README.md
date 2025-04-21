@@ -23,3 +23,5 @@
 - chat、agent 的调用方式都是使用 invoke 方法
 ![serpapi](images/serpapi.png)
 
+**1.3 函数调用**
+- 无法运行，晚些再看看原因
