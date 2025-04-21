@@ -13,7 +13,7 @@
 - Agent 代理：大模型自动选择调用哪个工具
 
 #### 二、实战 
-**1 环境准备**
+**1 Model（模型）**
 **1.1 安装python环境**
 - `conda create -n langchain python=3.9`
 - 激活后下载requirements.txt中的包
@@ -25,3 +25,9 @@
 
 **1.3 函数调用**
 - 无法运行，晚些再看看原因
+- 用的不是官方API，需要定义base_url访问自己的API网站
+![function_call](images/function_call.png)
+
+**1.4 缓存**
+- 使用内存作为缓存存放位置，第二次回答明显更快
+![cache](images/cache1.png)

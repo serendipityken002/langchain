@@ -26,9 +26,9 @@ functions = [
 ]
 
 def get_current_weather(city_name):
-    return f'20度，晴天'
+    return f'20度，雨天'
 
-llm = ChatOpenAI()
+llm = ChatOpenAI(base_url="https://api.chatanywhere.tech/v1")
 messages = llm.predict_messages(
     [HumanMessage(content='请告诉我北京的天气')],
     functions=functions,
@@ -49,4 +49,4 @@ second_response = llm.predict_messages(
         ),
     ]
 )
-print(second_response)
+print(second_response.content)
