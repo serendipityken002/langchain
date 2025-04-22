@@ -32,3 +32,5 @@
 - 使用内存作为缓存存放位置，第二次回答明显更快
 ![cache](images/cache1.png)
 - 实现相似匹配
+- 有问题，可能是版本不对，也可能是需要使用Openai而不是ChatOpenai
+![cache](images/cache2.png)

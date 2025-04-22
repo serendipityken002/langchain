@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-load_dotenv(dotenv_path="api_key.env")
+load_dotenv(dotenv_path="./api_key.env")
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_KEY")
 os.environ["SERPAPI_API_KEY"] = os.getenv("SERPAPI_KEY")
 
