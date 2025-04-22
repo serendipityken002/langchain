@@ -34,3 +34,10 @@
 - 实现相似匹配
 - 有问题，可能是版本不对，也可能是需要使用Openai而不是ChatOpenai
 ![cache](images/cache2.png)
+
+**1.5 async**
+- 使用asyncio实现异步调用
+![async](images/async.png)
+
+**2. Data Connection（数据连接）**
+**2.1 检索增强生成（RAG）**
