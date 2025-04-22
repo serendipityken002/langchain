@@ -1,0 +1,24 @@
+{
+    "data1": {
+        "name": "John Doe",
+        "age": 30,
+        "city": "New York"
+    },
+    "data2": {
+        "name": "Jane Smith",
+        "age": 25,
+        "city": "Los Angeles"
+    },
+    "sum": [
+        {
+            "name": "John Doe",
+            "age": 30,
+            "city": "New York"
+        },
+        {
+            "name": "Jane Smith",
+            "age": 25,
+            "city": "Los Angeles"
+        }
+    ]
+}

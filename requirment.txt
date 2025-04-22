@@ -5,3 +5,7 @@ google-search-results
 serpapi
 python-dotenv
 gptcache
+unstructured
+"unstructured[csv]"
+"unstructured[md]"
+jq
