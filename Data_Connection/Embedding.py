@@ -5,7 +5,6 @@ os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_KEY")
 
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.vectorstores import Chroma
-from langchain.vectorstores import FAISS
 import shutil
 em_model = OpenAIEmbeddings(openai_api_base="https://api.chatanywhere.tech/v1")
 
@@ -33,20 +32,17 @@ db = Chroma.from_texts(
 
 # 相关性搜索
 query = '谈话中和名字相关的有哪些？'
-docs = db.similarity_search(query, k=3)
+# docs = db.similarity_search(query, k=3)
+# for doc in docs:
+#     print(doc.page_content)
+#     print("===" * 10)
+
+# 将检索功能封装为一个检索器，可配合后面的chain进行使用
+retriever = db.as_retriever(
+    search_kwargs={"k": 2}
+)
+
+docs = retriever.invoke(query)
 for doc in docs:
     print(doc.page_content)
     print("===" * 10)
-
-
-# db = FAISS.from_texts(
-#     text,
-#     OpenAIEmbeddings(openai_api_base="https://api.chatanywhere.tech/v1")
-# )
-
-# query = "谈话中和名字相关的有哪些？"
-# em_vector = OpenAIEmbeddings(openai_api_base="https://api.chatanywhere.tech/v1").embed_query(query)
-# docxs = db.similarity_search_by_vector(em_vector, k=3)
-# for doc in docxs:
-#     print(doc.page_content)
-#     print("===" * 10)

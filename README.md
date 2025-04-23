@@ -15,28 +15,28 @@
 #### 二、实战 
 **1 Model（模型）**
 **1.1 安装python环境**
-- `conda create -n langchain python=3.9`
-- 激活后下载requirements.txt中的包
+`conda create -n langchain python=3.9`
+激活后下载requirements.txt中的包
 
 **1.2 通过Google搜索并返回答案**
-- 利用 agent 调用 serpapi 工具
-- chat、agent 的调用方式都是使用 invoke 方法
+利用 agent 调用 serpapi 工具
+chat、agent 的调用方式都是使用 invoke 方法
 ![serpapi](images/serpapi.png)
 
 **1.3 函数调用**
-- 无法运行，晚些再看看原因
-- 用的不是官方API，需要定义base_url访问自己的API网站
+无法运行，晚些再看看原因
+用的不是官方API，需要定义base_url访问自己的API网站
 <img src="images/function_call.png" alt="function_call" style="zoom:50%;" />
 
 **1.4 缓存**
-- 使用内存作为缓存存放位置，第二次回答明显更快
+使用内存作为缓存存放位置，第二次回答明显更快
 <img src="images/cache1.png" alt="cache" style="zoom:67%;" />
-- 实现相似匹配
-- 有问题，可能是版本不对，也可能是需要使用Openai而不是ChatOpenai
+实现相似匹配
+有问题，可能是版本不对，也可能是需要使用Openai而不是ChatOpenai
 <img src="images/cache2.png" alt="cache" style="zoom:50%;" />
 
 **1.5 async**
-- 使用asyncio实现异步调用
+使用asyncio实现异步调用
 <img src="images/async.png" alt="async" style="zoom:50%;" />
 
 **2. Data Connection（数据连接）**
@@ -52,13 +52,18 @@
 
 **2.3 文档转换器**
 
-- 文本分割器：将长文本分割成小块
-  - 基于字符分割
-  - 基于Token分割
+文本分割器：将长文本分割成小块
+- 基于字符分割
+- 基于Token分割
 
 ![splitter](images/splitter.png)
-- 文本元数据提取（提取一段话的指定内容）
+文本元数据提取（提取一段话的指定内容）
 <img src="images/Property.png" alt="Property" style="zoom:50%;" />
 
-- 嵌入与向量数据库（比较两句话之间的向量相似度）
+**2.4 嵌入与向量数据库**
+比较两句话之间的向量相似度
 <img src="images/Embedding.png" alt="Embedding" style="zoom:50%;" />
+
+多重提问检索器
+当用户提出一个问题时，困难存在多种表达方式。通过用户的问题进行衍生，生成多种表达方式，然后进行检索，可以提高准确率。(问：疾病的特点？)
+![multiquery](images/multiquery.png)
