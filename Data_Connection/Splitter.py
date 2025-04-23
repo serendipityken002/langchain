@@ -9,12 +9,6 @@ The text splitter will help us do that by breaking the text into smaller pieces 
 The text splitter can be configured to split the text at different character limits, allowing for flexibility in how the text is processed. 
 This is particularly useful when working with large documents that may be too cumbersome to handle in their entirety.
 """
-doc_str_cn = """
-这是一个很长的文档，需要拆分成更小的块。
-文本拆分器将通过根据指定的字符限制将文本分成更小的片段来帮助我们做到这一点。这对于以更易于管理的方式处理大型文档非常有用。
-文本拆分器可以配置为以不同的字符限制拆分文本，从而灵活地处理文本。
-这在处理可能过于繁琐而无法完整处理的大型文档时特别有用。
-"""
 
 # # 分隔符是一个字符串，默认为"\n\n"
 # text_splitter = CharacterTextSplitter(
@@ -37,17 +31,54 @@ doc_str_cn = """
 #     print(f"length: {len(doc.page_content)}")
 #     print("=" * 66)
 
-# 基于token的文本拆分器
-text_splitter = TokenTextSplitter(
-    chunk_size=50,
-    chunk_overlap=20,
-    # model_name="gpt-3.5-turbo",
-    encoding_name="gpt2",
-)
+# # 基于token的文本拆分器
+# text_splitter = TokenTextSplitter(
+#     chunk_size=50,
+#     chunk_overlap=20,
+#     # model_name="gpt-3.5-turbo",
+#     encoding_name="gpt2",
+# )
 
-docs = text_splitter.create_documents([doc_str_cn])
-token_encoder = tiktoken.get_encoding("gpt2")
-for doc in docs:
-    print(doc)
-    print(f"tokens: {len(token_encoder.encode(doc.page_content))}")
-    print("=" * 66)
+# docs = text_splitter.create_documents([doc_str])
+# token_encoder = tiktoken.get_encoding("gpt2")
+# for doc in docs:
+#     print(doc)
+#     print(f"tokens: {len(token_encoder.encode(doc.page_content))}")
+#     print("=" * 66)
+
+import os
+from dotenv import load_dotenv
+load_dotenv(dotenv_path="./api_key.env")
+os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_KEY")
+from langchain.schema import Document
+from langchain_openai import ChatOpenAI
+from langchain.document_transformers.openai_functions import (
+    create_metadata_tagger)
+import json
+
+doc_str_cn = """
+《鸣潮》是广州库洛公司开发的一款开放世界ARPG游戏，于2024年5月23日发布。
+"""
+documents = [Document(page_content=doc_str_cn)]
+
+chat = ChatOpenAI(base_url="https://api.chatanywhere.tech/v1")
+propertiers = {
+    'properties': {
+        'name': {'type': 'string', 'description': '游戏名称'},
+        'conpany': {'type': 'string', 'description': '公司名称'},
+        'date': {'type': 'string', 'description': '发售日期，按照YYYY-MM-DD格式'},
+    }
+}
+
+# 下面两行用于使用create_metadata_tagger函数创建一个文档转换器
+document_transformer = create_metadata_tagger(
+    metadata_schema=propertiers,
+    llm=chat,
+)
+enhanced_docs = document_transformer.transform_documents(documents)
+
+print(json.dumps(
+    enhanced_docs[0].metadata, 
+    indent=2, 
+    ensure_ascii=False
+))

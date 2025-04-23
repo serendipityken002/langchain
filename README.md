@@ -26,18 +26,18 @@
 **1.3 函数调用**
 - 无法运行，晚些再看看原因
 - 用的不是官方API，需要定义base_url访问自己的API网站
-![function_call](images/function_call.png)
+<img src="images/function_call.png" alt="function_call" style="zoom:50%;" />
 
 **1.4 缓存**
 - 使用内存作为缓存存放位置，第二次回答明显更快
-![cache](images/cache1.png)
+<img src="images/cache1.png" alt="cache" style="zoom:67%;" />
 - 实现相似匹配
 - 有问题，可能是版本不对，也可能是需要使用Openai而不是ChatOpenai
-![cache](images/cache2.png)
+<img src="images/cache2.png" alt="cache" style="zoom:50%;" />
 
 **1.5 async**
 - 使用asyncio实现异步调用
-![async](images/async.png)
+<img src="images/async.png" alt="async" style="zoom:50%;" />
 
 **2. Data Connection（数据连接）**
 **2.1 检索增强生成（RAG）**
@@ -51,4 +51,11 @@
 - JSON 加载器
 
 **2.3 文档转换器**
+
 - 文本分割器：将长文本分割成小块
+  - 基于字符分割
+  - 基于Token分割
+
+![splitter](images/splitter.png)
+- 文本元数据提取
+<img src="images/Property.png" alt="Property" style="zoom:50%;" />
