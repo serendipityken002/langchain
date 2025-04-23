@@ -9,3 +9,4 @@ unstructured
 "unstructured[csv]"
 "unstructured[md]"
 jq
+chromadb

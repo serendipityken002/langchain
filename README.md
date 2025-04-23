@@ -57,5 +57,8 @@
   - 基于Token分割
 
 ![splitter](images/splitter.png)
-- 文本元数据提取
+- 文本元数据提取（提取一段话的指定内容）
 <img src="images/Property.png" alt="Property" style="zoom:50%;" />
+
+- 嵌入与向量数据库（比较两句话之间的向量相似度）
+<img src="images/Embedding.png" alt="Embedding" style="zoom:50%;" />
