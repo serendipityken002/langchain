@@ -10,3 +10,4 @@ unstructured
 "unstructured[md]"
 jq
 chromadb
+pymysql 

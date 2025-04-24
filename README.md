@@ -98,3 +98,9 @@ chat、agent 的调用方式都是使用 invoke 方法
 - stuff：将所有文档一次性传给 LLM
 - map_reduce：对每一个document进行总结，然后将总结的内容汇总再总结一次
 - refine：迭代总结，总结完上一个document后，将其与下一个document一起总结
+
+**3.7API Chain**
+
+**3.8 SQL Chain**
+用自然语言的方式提问，自动生成SQL语句进行查询
+![SQLChain](images/SQLChain.png)
