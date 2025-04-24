@@ -76,6 +76,7 @@ chat、agent 的调用方式都是使用 invoke 方法
 **3. Chains（链式处理）**
 **3.1 LLM Chain**
 单链条，一个输入一个输出，主要利用后面的方法将一个个单链条串起来
+![LLMChain](images/LLMChain.png)
 
 **3.2 Simple Sequential Chain**
 简单的顺序链，将前面的单链条的输出作为后面单链条的输入，也就是可以一个个串起来
@@ -84,4 +85,16 @@ chat、agent 的调用方式都是使用 invoke 方法
 与刚刚不同的时，此时可以运行接收多个输入，多个输出，核心仍是顺序链（一个接一个）
 
 **3.4 Router Chain**
-定义一个模板信息的字典列表，记录模板的名称、作用和内容
+首先定义一个模板信息的字典列表，记录模板的名称、作用和内容
+然后根据LLMChain定义一个个单链（合理选择llm和prompt），并用字典将其存储起来
+最后创建路由链，将前面的单链字典作为输入，即可自动选择合适的单链进行解决问题
+![RouterChain](images/RouterChain.png)
+
+**3.5 TransformerChain**
+允许用户对内容进行自定义处理后，再传给下一个链，相当于将 LLM 替换为用户自己处理
+
+**3.6 Sumarize Chain**
+专门对文档进行总结的链，有三种默认总结的方法。
+- stuff：将所有文档一次性传给 LLM
+- map_reduce：对每一个document进行总结，然后将总结的内容汇总再总结一次
+- refine：迭代总结，总结完上一个document后，将其与下一个document一起总结
