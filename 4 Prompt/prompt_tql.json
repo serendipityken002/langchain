@@ -1,0 +1,15 @@
+{
+    "name": null,
+    "input_variables": [
+        "language"
+    ],
+    "optional_variables": [],
+    "output_parser": null,
+    "partial_variables": {},
+    "metadata": null,
+    "tags": null,
+    "template": "\u8bf7\u5e2e\u6211\u7528{language}\u8bed\u8a00\u5199\u4e00\u4e2a\u6253\u5370\"Hello World\"\u7684\u7a0b\u5e8f\u3002",
+    "template_format": "f-string",
+    "validate_template": false,
+    "_type": "prompt"
+}
