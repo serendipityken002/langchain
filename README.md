@@ -104,3 +104,12 @@ chat、agent 的调用方式都是使用 invoke 方法
 **3.8 SQL Chain**
 用自然语言的方式提问，自动生成SQL语句进行查询
 ![SQLChain](images/SQLChain.png)
+
+**3.9 QA Chain**
+RetrievalQA：问答链，将RAG检索到的内容作为提示词上下文传给LLM进行回答
+ConversationalRetrievalQA：对话式问答链，允许用户与LLM进行多轮对话，并将对话保存下来
+
+**3.10 LCEL 管道操作符**
+上游输出 | 下游输入
+还可以用ConfigurableField来配置链的参数，此外可以设置一个备用方案，当上游链报错时，自动使用备用方案进行处理
+在获取输入的时候，RunnablePassthrough.assign可以给我们传入的内容进行一定的修改，然后他返回的是question键的字典，也就是说后续输入要用question接收
