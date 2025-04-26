@@ -138,3 +138,11 @@ ConversationalRetrievalQA：对话式问答链，允许用户与LLM进行多轮�
 `SimilarityPromptTemplate`：相似度提示词模板，提供两个文本进行相似度计算
 可以看到与sunny最相近的examples是happy，他会去学习相似的examples回答进而输出自己的回答
 ![Similarity](images/Similarity.png)
+
+**4.3 输出解析器**
+规定大模型的输出格式
+- CommaSeparatedListOutputParser：固定输出内容为list格式
+- DatetimeOutputParser：输出格式为datetime对象
+- EnumOutputParser：输出结果为枚举对象
+- XMLOutputParser：转换为XML格式，进一步转换为字典
+- StructuredOutputParser：自定义json格式

@@ -11,3 +11,4 @@ unstructured
 jq
 chromadb
 pymysql 
+defusedxml
