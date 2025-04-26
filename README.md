@@ -131,3 +131,10 @@ ConversationalRetrievalQA：对话式问答链，允许用户与LLM进行多轮�
 > 给一个计算题，明确指定要一步步算，这样大模型的准确率会明显提高
 
 **4.2 PromptTemplate**
+`PromptTemplate.from_template`：创建提示词模板，类似于python的f-string格式
+- partial: 提供部分参数
+- format: 提供所有参数
+
+`SimilarityPromptTemplate`：相似度提示词模板，提供两个文本进行相似度计算
+可以看到与sunny最相近的examples是happy，他会去学习相似的examples回答进而输出自己的回答
+![Similarity](images/Similarity.png)
