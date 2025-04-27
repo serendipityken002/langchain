@@ -162,3 +162,6 @@ ConversationalRetrievalQA：对话式问答链，允许用户与LLM进行多轮�
 
 **5.3 将历史对话存入向量数据库**
 VectorStoreRetrieverMemory：将对话内容存入向量数据库，使用向量检索器进行检索
+多Memory组合：CombineMemory，将实际对话内容和总结对话内容进行结合
+实体记忆、EntityMemory，将对话内容进行实体识别（主要是记住人名、地名等）
+知识图谱：暂时没感觉到作用，实现方式类似于自定义Memory
