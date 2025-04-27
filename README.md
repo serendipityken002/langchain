@@ -146,3 +146,19 @@ ConversationalRetrievalQA：对话式问答链，允许用户与LLM进行多轮�
 - EnumOutputParser：输出结果为枚举对象
 - XMLOutputParser：转换为XML格式，进一步转换为字典
 - StructuredOutputParser：自定义json格式
+
+**5. Memory**
+**5.1 将历史对话保存成Memory**
+- ConversationBufferMemory：直接保存对话内容
+- ConversationBufferWindowMemory：保存最近k次对话内容
+- ConversationTokenbufferMemory：按token数存储对话，不再是按多少个句子
+
+**5.2 将历史对话进行总结**
+大模型最终得到的内容分为两部分：
+- 对超过token限制的内容进行总结（这部分没丢）。
+- 没超过token限制内的对话内容完整保留
+![Summary](images/Summary.png)
+
+
+**5.3 将历史对话存入向量数据库**
+VectorStoreRetrieverMemory：将对话内容存入向量数据库，使用向量检索器进行检索
