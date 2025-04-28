@@ -165,3 +165,9 @@ VectorStoreRetrieverMemory：将对话内容存入向量数据库，使用向量
 多Memory组合：CombineMemory，将实际对话内容和总结对话内容进行结合
 实体记忆、EntityMemory，将对话内容进行实体识别（主要是记住人名、地名等）
 知识图谱：暂时没感觉到作用，实现方式类似于自定义Memory
+
+**6. Agents（代理）**
+**6.1 ReAct Agent**
+可以将搜索工具(search)和查询工具(lookup)结合起来，先搜索到相关内容，然后再进行查询
+- 我想实现自己的Tool时，大模型无法调用多参数函数，目前没有解决(Tool.py)
+- 我想实现一个AutoGPT的功能，让其可以创建文件和读写文件，但是无法导入AutoGPT的包，可能是版本问题(AutoGPT.py)
